@@ -9,7 +9,7 @@ DUNE_VERSION=${DUNE_VERSION:-v10_16_00d00}
 DUNE_QUALIFIER=${DUNE_QUALIFIER:-e26:prof}
 setup dunesw "$DUNE_VERSION" -q "$DUNE_QUALIFIER"
 
-FHICL=${FHICL:-reco_dune10kt_1x2x2_tpcsigproc.fcl}
+FHICL=${FHICL:-reco_dune10kt_1x2x2_just_tpcsigproc.fcl}
 NEVENTS=${NEVENTS:--1}
 
 lar -c $FHICL -n $NEVENTS $input_file

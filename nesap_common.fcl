@@ -1,0 +1,17 @@
+#include "standard_reco_dune10kt.fcl"
+
+#include "nesap_wirecell.fcl"
+
+# See:
+# https://github.com/DUNE/dunesw/blob/develop/fcl/dunefd/reco/standard_reco_dune10kt.fcl
+# https://github.com/DUNE/dunesw/blob/develop/fcl/dunefd/reco/workflow_reco_dune10kt.fcl
+# https://github.com/DUNE/dunereco/blob/develop/dunereco/DUNEWireCell/wirecell_dune.fcl
+
+services:
+{
+    @table::services
+    @table::dunefd_1x2x2_reco_services
+}
+
+
+
