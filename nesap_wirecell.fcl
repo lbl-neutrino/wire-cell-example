@@ -54,9 +54,9 @@ nesap_wirecell: {
 nesap_wirecell_dnnroi: {
     @table::nesap_wirecell
     wcls_main: {
-        @table::nesap_wirecell::wcls_main
+        @table::nesap_wirecell.wcls_main
         structs: {
-            @table::nesap_wirecell::wcls_main::structs
+            @table::nesap_wirecell.wcls_main.structs
             use_dnnroi: true
         }
     }
