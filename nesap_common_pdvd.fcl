@@ -5,3 +5,9 @@
 # See:
 # https://github.com/DUNE/dunesw/blob/develop/fcl/protodunevd/reco/standard_reco_protodunevd_keepup.fcl
 # https://github.com/DUNE/dunereco/blob/develop/dunereco/DUNEWireCell/wirecell_dune.fcl
+
+services:
+{
+    @table::services
+    @table::protodunevd_reco_services
+}
