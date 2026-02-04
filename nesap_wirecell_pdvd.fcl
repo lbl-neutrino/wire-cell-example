@@ -35,6 +35,7 @@ nesap_wclsdatavd_dnnroi : {
         structs: {
             @table::nesap_wclsdatavd.wcls_main.structs
             use_dnnroi: true
+            inference_service: "TorchService"
         }
     }
 }
