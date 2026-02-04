@@ -32,10 +32,13 @@ nesap_wclsdatavd_dnnroi : {
     @table::nesap_wclsdatavd
     wcls_main: {
         @table::nesap_wclsdatavd.wcls_main
+        params: {
+            @table::nesap_wclsdatavd.wcls_main.params
+            inference_service: "TorchService"
+        }
         structs: {
             @table::nesap_wclsdatavd.wcls_main.structs
             use_dnnroi: true
-            inference_service: "TorchService"
         }
     }
 }
