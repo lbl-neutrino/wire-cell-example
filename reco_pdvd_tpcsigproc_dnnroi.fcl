@@ -2,7 +2,6 @@
 
 physics.producers:
 {
+    @table::nesap_producers_pdvd
     wclsdatavd: @local::nesap_wclsdatavd_dnnroi
 }
-
-physics.reco: [ wclsdatavd ]

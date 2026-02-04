@@ -1,13 +1,14 @@
-#include "standard_reco_protodunevd_keepup.fcl"
-
-#include "nesap_wirecell_pdvd.fcl"
-
 # See:
 # https://github.com/DUNE/dunesw/blob/develop/fcl/protodunevd/reco/standard_reco_protodunevd_keepup.fcl
 # https://github.com/DUNE/dunereco/blob/develop/dunereco/DUNEWireCell/wirecell_dune.fcl
 
-services:
-{
-    @table::services
-    @table::protodunevd_reco_services
+#include "standard_reco_protodunevd_keepup.fcl"
+#include "nesap_wirecell_pdvd.fcl"
+
+nesap_producers_pdvd: {
+    rns:            { module_type: "RandomNumberSaver" }
+    tpcrawdecoder:    @local::PDVDTPCReaderDefaults
+    triggerrawdecoder:@local::PDVDTriggerReader4Defaults
 }
+
+physics.produce: [rns, tpcrawdecoder, triggerrawdecoder, wclsdatavd]
