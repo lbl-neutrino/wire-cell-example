@@ -1,0 +1,7 @@
+#include "nesap_common_pdvd.fcl"
+
+physics.producers:
+{
+    @table::nesap_producers_pdvd
+    wclsdatavd: @local::nesap_wclsdatavd_dnnroi_gpu
+}

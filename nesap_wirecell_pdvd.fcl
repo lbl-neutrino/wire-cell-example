@@ -11,7 +11,8 @@ nesap_wclsdatavd : {
       plugins: ["WireCellGen", "WireCellSigProc", "WireCellRoot", "WireCellPgraph", "WireCellLarsoft", "WireCellPytorch"]
       inputers: ["wclsRawFrameSource"]
       outputers: ["wclsFrameSaver:spsaver"]
-      configs: ["pgrapher/experiment/protodunevd/wcls-nf-sp.jsonnet"]
+      # configs: ["pgrapher/experiment/protodunevd/wcls-nf-sp.jsonnet"]
+      configs: ["pdvd-wcls-nf-sp.jsonnet"]
       params : {
          raw_input_label: "tpcrawdecoder:daq"
          reality: "data"
@@ -28,18 +29,41 @@ nesap_wclsdatavd : {
    }
 }
 
-nesap_wclsdatavd_dnnroi : {
+nesap_wclsdatavd_dnnroi_base : {
     @table::nesap_wclsdatavd
     wcls_main: {
         @table::nesap_wclsdatavd.wcls_main
         params: {
             @table::nesap_wclsdatavd.wcls_main.params
+            # Set inference_service to "TritonService" to use IaaS
             inference_service: "TorchService"
             dnn_roi_model: "ts-model/CP49.ts"
         }
         structs: {
             @table::nesap_wclsdatavd.wcls_main.structs
             use_dnnroi: true
+        }
+    }
+}
+
+nesap_wclsdatavd_dnnroi_cpu : {
+    @table::nesap_wclsdatavd_dnnroi_base
+    wcls_main: {
+        @table::nesap_wclsdatavd_dnnroi_base.wcls_main
+        params: {
+            @table::nesap_wclsdatavd_base.wcls_main.params
+            dnn_roi_device: "cpu"
+        }
+    }
+}
+
+nesap_wclsdatavd_dnnroi_gpu : {
+    @table::nesap_wclsdatavd_dnnroi_base
+    wcls_main: {
+        @table::nesap_wclsdatavd_dnnroi_base.wcls_main
+        params: {
+            @table::nesap_wclsdatavd_base.wcls_main.params
+            dnn_roi_device: "gpu"
         }
     }
 }

@@ -31,6 +31,7 @@ local dnn_roi_model = std.extVar('dnn_roi_model');
 local inference_service = std.extVar('inference_service'); // "TorchService" or "TritonService"
 local triton_url = std.extVar('triton_url'); // only used for "TritonService" but we have to get it here
 local nchunks = 1;
+local dnn_roi_device = std.extVar('dnn_roi_device');
 
 
 
@@ -177,7 +178,7 @@ if inference_service == "TorchService" then
     name: "dnnroi",
     data: {
         model: dnn_roi_model,
-        device: "cpu",
+        device: dnn_roi_device,
         concurrency: 1,
     },
 }

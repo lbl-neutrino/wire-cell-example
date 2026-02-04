@@ -5,6 +5,8 @@
 #include "standard_reco_protodunevd_keepup.fcl"
 #include "nesap_wirecell_pdvd.fcl"
 
+# TODO: See which remaining producers we can get rid of
+
 nesap_producers_pdvd: {
     rns:            { module_type: "RandomNumberSaver" }
     tpcrawdecoder:    @local::PDVDTPCReaderDefaults
