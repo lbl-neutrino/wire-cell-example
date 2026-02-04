@@ -5,7 +5,7 @@ input_file=$1; shift
 
 source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh
 
-DUNE_VERSION=${DUNE_VERSION:-v10_16_00d00}
+DUNE_VERSION=${DUNE_VERSION:-v10_17_00d00}
 DUNE_QUALIFIER=${DUNE_QUALIFIER:-e26:prof}
 setup dunesw "$DUNE_VERSION" -q "$DUNE_QUALIFIER"
 
