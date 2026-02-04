@@ -8,7 +8,7 @@ nesap_wclsdatavd : {
       apps: ["Pgrapher"]
       logsinks: ["stdout"]
       loglevels: ["debug", "pgraph:info"]
-      plugins: ["WireCellGen", "WireCellSigProc", "WireCellRoot", "WireCellPgraph", "WireCellLarsoft"]
+      plugins: ["WireCellGen", "WireCellSigProc", "WireCellRoot", "WireCellPgraph", "WireCellLarsoft", "WireCellPytorch"]
       inputers: ["wclsRawFrameSource"]
       outputers: ["wclsFrameSaver:spsaver"]
       configs: ["pgrapher/experiment/protodunevd/wcls-nf-sp.jsonnet"]
