@@ -35,6 +35,7 @@ nesap_wclsdatavd_dnnroi : {
         params: {
             @table::nesap_wclsdatavd.wcls_main.params
             inference_service: "TorchService"
+            dnn_roi_model: "ts-model/CP49.ts"
         }
         structs: {
             @table::nesap_wclsdatavd.wcls_main.structs
