@@ -1,0 +1,7 @@
+#include "standard_reco_protodunevd_keepup.fcl"
+
+#include "nesap_wirecell_pdvd.fcl"
+
+# See:
+# https://github.com/DUNE/dunesw/blob/develop/fcl/protodunevd/reco/standard_reco_protodunevd_keepup.fcl
+# https://github.com/DUNE/dunereco/blob/develop/dunereco/DUNEWireCell/wirecell_dune.fcl

@@ -1,0 +1,8 @@
+#include "nesap_common_pdvd.fcl"
+
+physics.producers:
+{
+    wclsdatavd: @local::nesap_wclsdatavd
+}
+
+physics.reco: [ wclsdatavd ]
