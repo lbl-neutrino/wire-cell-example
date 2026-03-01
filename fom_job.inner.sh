@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-NRUNS=2
+NRUNS=3
 
 device=$1; shift     # cpu or gpu
 
