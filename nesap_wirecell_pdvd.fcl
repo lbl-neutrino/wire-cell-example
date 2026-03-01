@@ -37,7 +37,6 @@ nesap_wclsdatavd_dnnroi_base : {
             @table::nesap_wclsdatavd.wcls_main.params
             # Set inference_service to "TritonService" to use IaaS
             inference_service: "TorchService"
-            dnn_roi_model: "ts-model/CP49.ts"
         }
         structs: {
             @table::nesap_wclsdatavd.wcls_main.structs
@@ -46,23 +45,49 @@ nesap_wclsdatavd_dnnroi_base : {
     }
 }
 
-nesap_wclsdatavd_dnnroi_cpu : {
+nesap_wclsdatavd_dnnroi_CP49_cpu : {
     @table::nesap_wclsdatavd_dnnroi_base
     wcls_main: {
         @table::nesap_wclsdatavd_dnnroi_base.wcls_main
         params: {
             @table::nesap_wclsdatavd_base.wcls_main.params
+            dnn_roi_model: "ts-model/CP49.ts"
             dnn_roi_device: "cpu"
         }
     }
 }
 
-nesap_wclsdatavd_dnnroi_gpu : {
+nesap_wclsdatavd_dnnroi_CP49_gpu : {
     @table::nesap_wclsdatavd_dnnroi_base
     wcls_main: {
         @table::nesap_wclsdatavd_dnnroi_base.wcls_main
         params: {
             @table::nesap_wclsdatavd_base.wcls_main.params
+            dnn_roi_model: "ts-model/CP49.ts"
+            dnn_roi_device: "gpu"
+        }
+    }
+}
+
+nesap_wclsdatavd_dnnroi_unet_cpu : {
+    @table::nesap_wclsdatavd_dnnroi_base
+    wcls_main: {
+        @table::nesap_wclsdatavd_dnnroi_base.wcls_main
+        params: {
+            @table::nesap_wclsdatavd_base.wcls_main.params
+            dnn_roi_model: "ts-model/unet-l23-cosmic500-e50.ts"
+            dnn_roi_device: "cpu"
+        }
+    }
+}
+
+nesap_wclsdatavd_dnnroi_unet_gpu : {
+    @table::nesap_wclsdatavd_dnnroi_base
+    wcls_main: {
+        @table::nesap_wclsdatavd_dnnroi_base.wcls_main
+        params: {
+            @table::nesap_wclsdatavd_base.wcls_main.params
+            dnn_roi_model: "ts-model/unet-l23-cosmic500-e50.ts"
             dnn_roi_device: "gpu"
         }
     }
