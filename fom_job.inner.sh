@@ -14,12 +14,13 @@ model=${args[1]}
 
 fhicl=reco_pdvd_tpcsigproc_dnnroi_${model}_${device}.fcl
 
-mkdir -p output timing
+mkdir -p output logs timing
 outfile=output/$(basename "$infile" .hdf5).$model.$device.RECO.root
+logfile=logs/$(basename "$infile" .hdf5).$model.$device.log
 timefile=timing/$(basename "$infile" .hdf5).$model.$device.time
 
 for _ in $(seq $NRUNS); do
     rm -f "$outfile"
     /usr/bin/time -f "%P %M %E" -a -o "$timefile" \
-        lar -c "$fhicl" "$infile" -o "$outfile"
+        lar -c "$fhicl" "$infile" -o "$outfile" &> "$logfile"
 done
