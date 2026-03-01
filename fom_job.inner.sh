@@ -4,6 +4,11 @@ NRUNS=3
 
 device=$1; shift     # cpu or gpu
 
+source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh
+DUNE_VERSION=${DUNE_VERSION:-v10_17_00d00}
+DUNE_QUALIFIER=${DUNE_QUALIFIER:-e26:prof}
+setup dunesw "$DUNE_VERSION" -q "$DUNE_QUALIFIER"
+
 # get corresponding line of fom_job.args.txt
 lineno=$((SLURM_PROCID + 1))
 args=$(sed -n ${lineno}p fom_job.args.txt)
