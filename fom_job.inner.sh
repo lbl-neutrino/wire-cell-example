@@ -9,23 +9,31 @@ DUNE_VERSION=${DUNE_VERSION:-v10_17_00d00}
 DUNE_QUALIFIER=${DUNE_QUALIFIER:-e26:prof}
 setup dunesw "$DUNE_VERSION" -q "$DUNE_QUALIFIER"
 
-# get corresponding line of fom_job.args.txt
-lineno=$((SLURM_PROCID + 1))
-args=$(sed -n ${lineno}p fom_job.args.txt)
-read -ra args <<< "$args"       # split into array
+if [[ "$device" == "gpu" ]]; then
+    offsets=(0 4)
+else
+    offsets=(0)
+fi
 
-infile=${args[0]}
-model=${args[1]}
+for offset in $offsets; do
+    # get corresponding line of fom_job.args.txt
+    lineno=$((offset + SLURM_PROCID + 1))
+    args=$(sed -n ${lineno}p fom_job.args.txt)
+    read -ra args <<< "$args"       # split into array
 
-fhicl=reco_pdvd_tpcsigproc_dnnroi_${model}_${device}.fcl
+    infile=${args[0]}
+    model=${args[1]}
 
-mkdir -p output logs timing
-outfile=output/$(basename "$infile" .hdf5).$model.$device.RECO.root
-logfile=logs/$(basename "$infile" .hdf5).$model.$device.log
-timefile=timing/$(basename "$infile" .hdf5).$model.$device.time
+    fhicl=reco_pdvd_tpcsigproc_dnnroi_${model}_${device}.fcl
 
-for _ in $(seq $NRUNS); do
-    rm -f "$outfile"
-    /usr/bin/time -f "%P %M %E" -a -o "$timefile" \
-        lar -c "$fhicl" "$infile" -o "$outfile" &> "$logfile"
+    mkdir -p output logs timing
+    outfile=output/$(basename "$infile" .hdf5).$model.$device.RECO.root
+    logfile=logs/$(basename "$infile" .hdf5).$model.$device.log
+    timefile=timing/$(basename "$infile" .hdf5).$model.$device.time
+
+    for _ in $(seq $NRUNS); do
+        rm -f "$outfile"
+        /usr/bin/time -f "%P %M %E" -a -o "$timefile" \
+            lar -c "$fhicl" "$infile" -o "$outfile" &> "$logfile"
+    done
 done
