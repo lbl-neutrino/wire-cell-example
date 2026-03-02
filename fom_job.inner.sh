@@ -8,6 +8,7 @@ source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh
 DUNE_VERSION=${DUNE_VERSION:-v10_17_00d00}
 DUNE_QUALIFIER=${DUNE_QUALIFIER:-e26:prof}
 setup dunesw "$DUNE_VERSION" -q "$DUNE_QUALIFIER"
+export WIRECELL_PATH=$DUNERECO_DIR/wire-cell-cfg/pgrapher/experiment/protodunevd:$WIRECELL_PATH
 
 if [[ "$device" == "gpu" ]]; then
     offsets=(0 4)
