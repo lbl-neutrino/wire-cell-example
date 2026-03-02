@@ -36,5 +36,5 @@ lar -c reco_pdvd_tpcsigproc_dnnroi_CP49_gpu.fcl /global/cfs/cdirs/m5170/data/fom
 unet-l23-cosmic500-e50.ts:
 
 ```bash
-lar -c reco_pdvd_tpcsigproc_dnnroi_CP49_unet.fcl /global/cfs/cdirs/m5170/data/fom_inputs/np02vd_raw_run039255_0088_df-s04-d1_dw_0_20250830T114841.hdf5 
+lar -c reco_pdvd_tpcsigproc_dnnroi_unet_gpu.fcl /global/cfs/cdirs/m5170/data/fom_inputs/np02vd_raw_run039255_0088_df-s04-d1_dw_0_20250830T114841.hdf5 
 ```
