@@ -24,6 +24,8 @@ export WIRECELL_PATH=$DUNERECO_DIR/wire-cell-cfg/pgrapher/experiment/protodunevd
 
 ## Crash!
 
+Run the following from the root directory of this repository.
+
 CP49.ts:
 
 ```bash
