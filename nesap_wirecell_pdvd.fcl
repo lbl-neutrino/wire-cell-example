@@ -50,7 +50,7 @@ nesap_wclsdatavd_dnnroi_CP49_cpu : {
     wcls_main: {
         @table::nesap_wclsdatavd_dnnroi_base.wcls_main
         params: {
-            @table::nesap_wclsdatavd_base.wcls_main.params
+            @table::nesap_wclsdatavd_dnnroi_base.wcls_main.params
             dnn_roi_model: "ts-model/CP49.ts"
             dnn_roi_device: "cpu"
         }
@@ -62,7 +62,7 @@ nesap_wclsdatavd_dnnroi_CP49_gpu : {
     wcls_main: {
         @table::nesap_wclsdatavd_dnnroi_base.wcls_main
         params: {
-            @table::nesap_wclsdatavd_base.wcls_main.params
+            @table::nesap_wclsdatavd_dnnroi_base.wcls_main.params
             dnn_roi_model: "ts-model/CP49.ts"
             dnn_roi_device: "gpu"
         }
@@ -74,7 +74,7 @@ nesap_wclsdatavd_dnnroi_unet_cpu : {
     wcls_main: {
         @table::nesap_wclsdatavd_dnnroi_base.wcls_main
         params: {
-            @table::nesap_wclsdatavd_base.wcls_main.params
+            @table::nesap_wclsdatavd_dnnroi_base.wcls_main.params
             dnn_roi_model: "ts-model/unet-l23-cosmic500-e50.ts"
             dnn_roi_device: "cpu"
         }
@@ -86,7 +86,7 @@ nesap_wclsdatavd_dnnroi_unet_gpu : {
     wcls_main: {
         @table::nesap_wclsdatavd_dnnroi_base.wcls_main
         params: {
-            @table::nesap_wclsdatavd_base.wcls_main.params
+            @table::nesap_wclsdatavd_dnnroi_base.wcls_main.params
             dnn_roi_model: "ts-model/unet-l23-cosmic500-e50.ts"
             dnn_roi_device: "gpu"
         }
