@@ -5,13 +5,13 @@
 Apptainer example:
 
 ```bash
-/cvmfs/oasis.opensciencegrid.org/mis/apptainer/current/bin/apptainer exec --nv -B /cvmfs,/global/cfs,/global/common,/pscratch --ipc --pid /cvmfs/singularity.opensciencegrid.org/fermilab/fnal-dev-sl7:latest /bin/bash fom_job.inner.sh "$@"
+/cvmfs/oasis.opensciencegrid.org/mis/apptainer/current/bin/apptainer shell --nv --shell=/bin/bash -B /cvmfs,/global/cfs,/global/common,/pscratch --ipc --pid /cvmfs/singularity.opensciencegrid.org/fermilab/fnal-dev-sl7:latest
 ```
 
 Shifter example:
 
 ```bash
-shifter --image=fermilab/fnal-wn-sl7 --module=cvmfs,gpu -- ./fom_job.inner.sh "$@"
+shifter --image=fermilab/fnal-wn-sl7 --module=cvmfs,gpu -- /bin/bash
 ```
 
 ## Load the stack
