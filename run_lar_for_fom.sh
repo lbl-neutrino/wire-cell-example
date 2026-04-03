@@ -15,5 +15,5 @@ timefile=timing/$(basename "$infile" .hdf5).$model.$device.time
 for _ in $(seq $nruns); do
     rm -f "$outfile"
     /usr/bin/time -f "%P %M %E" -a -o "$timefile" \
-        lar -c "$fhicl" "$infile" -o "$outfile" &> "$logfile"
+        lar -c "$fhicl" "$infile" -o "$outfile" 2>&1 | tee -a "$logfile"
 done
