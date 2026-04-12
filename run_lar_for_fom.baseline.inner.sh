@@ -4,13 +4,17 @@ infile=$1; shift
 model=$1; shift
 device=$1; shift
 nruns=${1:-1}; shift
+index=${1:0}; shift
+
+index=$(printf "%05d" "$index")
 
 fhicl=reco_pdvd_tpcsigproc_dnnroi_${model}_${device}.fcl
 
-mkdir -p output logs timing
-outfile=output/$(basename "$infile" .hdf5).$model.$device.RECO.root
-logfile=logs/$(basename "$infile" .hdf5).$model.$device.log
-timefile=timing/$(basename "$infile" .hdf5).$model.$device.time
+key=$(basename "$infile" .hdf5)
+mkdir -p "output/$key" "logs/$key" "timing/$key"
+outfile=output/$key/$key.$model.$device.$index.RECO.root
+logfile=logs/$key/$key.$model.$device.$index.log
+timefile=timing/$key/$key.$model.$device.$index.time
 
 for _ in $(seq $nruns); do
     rm -f "$outfile"
