@@ -13,6 +13,7 @@ nruns=3
 
 source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh
 setup dunesw v10_17_00d00 -q e26:prof
+export FHICL_FILE_PATH=$PWD:$FHICL_FILE_PATH
 export WIRECELL_PATH=$PWD:$DUNERECO_DIR/wire-cell-cfg/pgrapher/experiment/protodunevd:$WIRECELL_PATH
 export HDF5_USE_FILE_LOCKING=FALSE
 
