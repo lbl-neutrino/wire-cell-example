@@ -18,7 +18,7 @@ export HDF5_USE_FILE_LOCKING=FALSE
 
 infile=$1; shift
 model=${models[0]}
-index=$SLURM_TASKID
+index=$SLURM_PROCID
 
 sleep $((RANDOM % 120))
 
