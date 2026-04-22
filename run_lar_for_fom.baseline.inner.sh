@@ -4,6 +4,7 @@ infile=$1; shift
 model=$1; shift
 device=$1; shift
 nruns=${1:-1}; shift
+nevents=${1:--1}; shift
 index=${1:0}; shift
 
 index=$(printf "%05d" "$index")
@@ -20,7 +21,7 @@ for _ in $(seq "$nruns"); do
     tmpdir=$(mktemp -d)
     pushd "$tmpdir" || exit 1
     /usr/bin/time -f "%P %M %E" -a -o "$timefile" \
-        lar -c "$fhicl" "$infile" -o "$outfile" 2>&1 | tee -a "$logfile"
+        lar -c "$fhicl" -n "$nevents" "$infile" -o "$outfile" 2>&1 | tee -a "$logfile"
     popd || exit 1
     rm -rf "$tmpdir"
 done

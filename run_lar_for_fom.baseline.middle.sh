@@ -10,6 +10,7 @@
 models=(CP49)
 device=cpu
 nruns=3
+nevents=18
 
 source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh
 setup dunesw v10_17_00d00 -q e26:prof
@@ -23,4 +24,4 @@ index=$SLURM_PROCID
 
 sleep $((RANDOM % 120))
 
-./run_lar_for_fom.baseline.inner.sh "$infile" "$model" "$device" "$nruns" "$index"
+./run_lar_for_fom.baseline.inner.sh "$infile" "$model" "$device" "$nruns" "$nevents" "$index"
