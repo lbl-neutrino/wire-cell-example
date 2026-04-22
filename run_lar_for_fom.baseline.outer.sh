@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#SBATCH -q regular -A m5170 -N 1 -C gpu -t 240 --ntasks-per-node=128 --image=fermilab/fnal-wn-sl7
+#SBATCH -q regular -A m5170 -N 1 -C gpu -t 240 --ntasks-per-node=64 --image=fermilab/fnal-wn-sl7
 
 infile=$1; shift
 
